@@ -47,7 +47,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Installation/">Installation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../inital-setup/">Initial Setup</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../initial-setup/">Initial Setup</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Hardware-Compatibility/">Hardware Compatibility</a>
                   </li>
@@ -62,41 +62,51 @@
                   </li>
                   <li class="toctree-l1"><a class="" href="https://jomjol.github.io/AI-on-the-edge-device/index.html">Web Installer/Console</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="https://github.com/jomjol/AI-on-the-edge-device/issues">Place an Issues</a>
+                  <li class="toctree-l1"><a class="" href="https://github.com/jomjol/AI-on-the-edge-device/issues">Create an Issue</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="https://github.com/jomjol/AI-on-the-edge-device/discussions">Join a Discussions</a>
+                  <li class="toctree-l1"><a class="" href="https://github.com/jomjol/AI-on-the-edge-device/discussions">Join a Discussion</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Configuration</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../ROI-Configuration/">ROI (Region of Interest)</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Reference-Image/">Reference Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Alignment/">Alignment References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ROI-Configuration/">ROIs (Regions of Interest)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Configuration/">Graphical Configuration</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Choosing-the-Model/">Model Selection</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Neural-Network-Types/">Neural Network Types</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../ota/">Over-The-Air (OTA) Update</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Advanced</span></p>
               <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Parameters/">Parameters</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Integration-Home-Assistant/">Integration into Home Assistant</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../External-LED/">External LED</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../rolling-installation/">Living on the edge</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-logging/">Data Logging</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Configuration-Parameter-Details/">Configuration Parameter Details</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../rolling-installation/">Living on the Edge</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Configuration/">Configuration</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Watermeter-specific-analog---digital-transition/">Analog/Digital Transition on Water Meters</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Watermeter-specific-analog---digital-transition/">Analog/Digital Transition on Watermeters</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../collect-new-images/">Collect images to improve the models</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Learn-models-with-your-own-images/">Learn a model with your own images</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Correction%20Algorithm/">Correction Algorithm</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Neural-Network-Types/">Neural Network Types</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Additional-Information/">Additional Information</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../New-Releases-Notification/">Notification about new Releases</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Troubleshooting</span></p>
@@ -107,6 +117,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Frequent-Reboots/">Frequent Reboots</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Demo-Mode/">Demo Mode</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">API's</span></p>
               <ul class="current">
@@ -116,7 +128,9 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#flow_start">flow_start</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#gpio">gpio</a>
+    <li class="toctree-l3"><a class="reference internal" href="#set-pre-value">Set Pre Value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gpio">GPIO</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#ota">ota</a>
     </li>
@@ -131,6 +145,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#json">json</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#value">value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#img_tmprawjpg">img_tmp/raw.jpg</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#img_tmpalgjpg">img_tmp/alg.jpg</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#img_tmpalg_roijpg">img_tmp/alg_roi.jpg</a>
     </li>
@@ -176,6 +194,12 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#diagnostics">Diagnostics</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#heap">heap</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../MQTT-API/">MQTT API</a>
@@ -186,8 +210,6 @@
               <p class="caption"><span class="caption-text">Development</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../Build-Instructions/">Build the Project</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Demo-Mode/">Demo Mode</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Upload-files-by-script/">Scripted File Upload</a>
                   </li>
@@ -200,14 +222,10 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../outdated--Integrated-Functions/">Integrated Functions</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../outdated--Gasmeter-Log-Downloader/">Gasmeter Log-Downloader</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../outdated--Migrate-Old-Config-To-New-Config/">Migration from water-meter „old“ to water-meter “AI-on-the-edge-device”</a>
-                  </li>
               </ul>
-              <p class="caption"><span class="caption-text">Asorted Pages</span></p>
+              <p class="caption"><span class="caption-text">Assorted Pages</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../Graphical-Configuration/">Graphical Configuration</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../StatusLED-BlinkCodes/">StatusLED BlinkCodes</a>
                   </li>
               </ul>
       </div>
@@ -237,39 +255,77 @@
               
                 <h1 id="rest-api">REST API</h1>
 <p>Various information is directly accessible over specific REST calls.</p>
-<p>For an up-to-date list search the Github repository for <a href="https://github.com/jomjol/AI-on-the-edge-device/search?q=camuri.uri">registered handlers</a></p>
-<p>To use it, just append them to the IP, separated with a <code>/</code>, eg. <code>http://192.168.1.1/json</code></p>
+<p>To use it, just append them to the IP, separated with a <code>/</code>, e.g. <code>http://192.168.1.1/json</code></p>
+<p>Note: For more detailed information to the REST handler, have a look to the code in the repository: <a href="https://github.com/jomjol/AI-on-the-edge-device/search?q=camuri.uri">registered handlers</a></p>
 <h2 id="control">Control</h2>
 <ul>
 <li>
 <h3 id="flow_start">flow_start</h3>
+<p>Trigger a flow start (if not running)</p>
 </li>
 <li>
-<h3 id="gpio">gpio</h3>
-<p>The <code>gpio</code> entrypoint also support parameters:</p>
+<h3 id="set-pre-value">Set Pre Value</h3>
+<p>Set the Previous Value</p>
+</li>
+</ul>
+<p><code>/setPreValue?value=1234&amp;numbers=main</code> where <code>1234</code> is the new value and <code>main</code> the name of the number to be adjusted.</p>
+<ul>
+<li>
+<h3 id="gpio">GPIO</h3>
 </li>
 <li>
-<p><code>/GPIO?GPIO=12&amp;Status=high</code></p>
+<p>Control a GPIO output</p>
+<ul>
+<li>The <code>GPIO</code> entrypoint also support parameters:</li>
+<li><code>/GPIO?GPIO={PinNumber}&amp;Status=high</code></li>
+<li><code>/GPIO?GPIO={PinNumber}&amp;Status=low</code></li>
+<li>Example: <code>/GPIO?GPIO=12&amp;Status=high</code></li>
+</ul>
+</li>
+<li>
+<p>Read a GPIO input </p>
+<ul>
+<li>The <code>GPIO</code> entrypoint also support parameters:</li>
+<li><code>/GPIO?GPIO={PinNumber}</code></li>
+<li>Example: <code>/GPIO?GPIO=12</code></li>
+</ul>
 </li>
 <li>
 <h3 id="ota">ota</h3>
 </li>
 <li>
 <h3 id="ota_pagehtml">ota_page.html</h3>
+<p>Opens the Over-The-Air update html page</p>
 </li>
 <li>
 <h3 id="reboot">reboot</h3>
+<p>Trigger a reboot of the device</p>
 </li>
 </ul>
 <h2 id="results">Results</h2>
 <ul>
 <li>
 <h3 id="json">json</h3>
+  Show result in JSON syntax</li>
+<li>
+<p>Example: 
+  <code>{
+  "main":
+    {
+      "value": "521.17108",
+      "raw": "521.17108",
+      "pre": "521.17108",
+      "error": "no error",
+      "rate": "0.023780",
+      "timestamp": "2023-01-13T16:00:42+0100"
+    }
+  }</code></p>
 </li>
 <li>
 <h3 id="value">value</h3>
-<p>The <code>value</code> entrypoint also support parameters:</p>
+<p>Show single result values</p>
 </li>
+<li>The <code>value</code> entrypoint also support parameters:</li>
 <li><code>http://&lt;IP&gt;/value?all=true&amp;type=value</code></li>
 <li><code>http://&lt;IP&gt;/value?all=true&amp;type=raw</code></li>
 <li><code>http://&lt;IP&gt;/value?all=true&amp;type=error</code></li>
@@ -277,56 +333,90 @@
 <p><code>http://&lt;IP&gt;/value?all=true&amp;type=prevalue</code></p>
 </li>
 <li>
+<h3 id="img_tmprawjpg">img_tmp/raw.jpg</h3>
+<p>Capture and show a new raw image</p>
+</li>
+<li>
+<h3 id="img_tmpalgjpg">img_tmp/alg.jpg</h3>
+<p>Show last aligned image</p>
+</li>
+<li>
 <h3 id="img_tmpalg_roijpg">img_tmp/alg_roi.jpg</h3>
-<p>Last captured picture</p>
+<p>Show last aligned image including ROI overlay</p>
 </li>
 </ul>
 <h2 id="status">Status</h2>
 <ul>
 <li>
 <h3 id="statusflow">statusflow</h3>
+  Show the actual step of the flow incl. timestamp</li>
+<li>
+<p>Example: <code>Take Image (15:56:34)</code></p>
 </li>
 <li>
 <h3 id="rssi">rssi</h3>
+<p>Show the WIFI signal strength (Unit: dBm)</p>
+</li>
+<li>
+<p>Example: <code>-51</code></p>
 </li>
 <li>
 <h3 id="cpu_temperature">cpu_temperature</h3>
+<p>Show the CPU temperature (Unit: °C)</p>
+</li>
+<li>
+<p>Example: <code>38</code></p>
 </li>
 <li>
 <h3 id="sysinfo">sysinfo</h3>
+<p>Show system infos in JSON syntax</p>
+</li>
+<li>
+<p>Example: <code>[{"firmware": "","buildtime": "2023-01-25 12:41","gitbranch": "HEAD","gittag": "","gitrevision": "af13c68+","html": "Development-Branch: HEAD (Commit: af13c68+)","cputemp": "64","hostname": "WaterMeterTest","IPv4": "192.168.xxx.xxx","freeHeapMem": "2818330"}]</code></p>
 </li>
 <li>
 <h3 id="starttime">starttime</h3>
+<p>Show starttime</p>
+</li>
+<li>
+<p>Example: <code>20230113-154634</code></p>
 </li>
 <li>
 <h3 id="uptime">uptime</h3>
+<p>Show uptime</p>
 </li>
+<li>Example: <code>0d 00h 15m 50s</code></li>
 </ul>
 <h2 id="camera">Camera</h2>
 <ul>
 <li>
 <h3 id="lighton">lighton</h3>
+<p>Switch the camera flashlight on </p>
 </li>
 <li>
 <h3 id="lightoff">lightoff</h3>
+<p>Switch the camera flashlight off</p>
 </li>
 <li>
 <h3 id="capture">capture</h3>
+<p>Capture a new image (without flashlight)</p>
 </li>
 <li>
 <h3 id="capture_with_flashlight">capture_with_flashlight</h3>
+<p>Capture a new image with flashlight</p>
 </li>
 <li>
 <h3 id="save">save</h3>
-<p>The <code>save</code> entrypoint also support parameters:</p>
+<p>Save a new image to SD card</p>
 </li>
-<li><code>http://&lt;IP&gt;/save?filename=test.jpg&amp;delay=3</code></li>
+<li>The <code>save</code> entrypoint also support parameters:</li>
+<li><code>http://&lt;IP&gt;/save?filename=test.jpg&amp;delay=1</code></li>
 </ul>
 <h2 id="logs">Logs</h2>
 <ul>
 <li>
 <h3 id="log">log</h3>
-<p>Last part of todays log</p>
+<p>Last part of todays log (last 80 kBytes))</p>
 </li>
 <li>
 <h3 id="logfileact">logfileact</h3>
@@ -334,13 +424,21 @@
 </li>
 <li>
 <h3 id="loghtml">log.html</h3>
+<p>Opens the log html page</p>
 </li>
+</ul>
+<h2 id="diagnostics">Diagnostics</h2>
+<ul>
+<li>
+<h3 id="heap">heap</h3>
+  print relevant memory (heap) information</li>
+<li>Example: <code>Heap info: Heap Total: 1888926 | SPI Free: 1827431 | SPI Larg Block: 1802240 | SPI Min Free: 758155 | Int Free: 61495 | Int Larg Block: 55296 | Int Min Free: 36427</code></li>
 </ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Frequent-Reboots/" class="btn btn-neutral float-left" title="Frequent Reboots"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Demo-Mode/" class="btn btn-neutral float-left" title="Demo Mode"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../MQTT-API/" class="btn btn-neutral float-right" title="MQTT API">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -368,7 +466,7 @@
         </span>
     
     
-      <span><a href="../Frequent-Reboots/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Demo-Mode/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../MQTT-API/" style="color: #fcfcfc">Next &raquo;</a></span>

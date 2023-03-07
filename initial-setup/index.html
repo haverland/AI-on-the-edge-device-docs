@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://jomjol.github.io/AI-on-the-edge-device-docs/initial-setup/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Initial Setup - AI on the Edge Device</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Initial Setup";
+        var mkdocs_page_input_path = "initial-setup.md";
+        var mkdocs_page_url = "/AI-on-the-edge-device-docs/initial-setup/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+<img src=https://jomjol.github.io/AI-on-the-edge-device-docs//img/logo.png>
+    <a href=".." class="icon icon-home"> AI on the Edge Device
+</a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Initial Setup</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#finish-the-setup-and-change-to-the-normal-operation-mode">Finish the Setup and change to the Normal Operation mode</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#access-to-the-setup-pages-in-the-normal-operation-mode">Access to the Setup Pages in the Normal Operation mode</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Hardware-Compatibility/">Hardware Compatibility</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Best-Practice/">Best Practice</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../FAQs/">Frequently Asked Questions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">External Links</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://github.com/jomjol/AI-on-the-edge-device/releases">Releases</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://jomjol.github.io/AI-on-the-edge-device/index.html">Web Installer/Console</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://github.com/jomjol/AI-on-the-edge-device/issues">Create an Issue</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://github.com/jomjol/AI-on-the-edge-device/discussions">Join a Discussion</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configuration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Reference-Image/">Reference Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Alignment/">Alignment References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ROI-Configuration/">ROIs (Regions of Interest)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Configuration/">Graphical Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Choosing-the-Model/">Model Selection</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ota/">Over-The-Air (OTA) Update</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Advanced</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Parameters/">Parameters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Integration-Home-Assistant/">Integration into Home Assistant</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../External-LED/">External LED</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-logging/">Data Logging</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../rolling-installation/">Living on the Edge</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Watermeter-specific-analog---digital-transition/">Analog/Digital Transition on Water Meters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collect-new-images/">Collect images to improve the models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Learn-models-with-your-own-images/">Learn a model with your own images</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Correction%20Algorithm/">Correction Algorithm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Neural-Network-Types/">Neural Network Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Additional-Information/">Additional Information</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../New-Releases-Notification/">Notification about new Releases</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Troubleshooting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Error-Codes/">Error Codes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Error-Debugging/">Error Debugging</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Frequent-Reboots/">Frequent Reboots</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Demo-Mode/">Demo Mode</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API's</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../REST-API/">REST API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../MQTT-API/">MQTT API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Influx-DB/">Influx DB</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Build-Instructions/">Build the Project</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Upload-files-by-script/">Scripted File Upload</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Testing/">Testing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Release-creation/">Preparing for Release</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Old Pages (no longer maintained)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../outdated--Integrated-Functions/">Integrated Functions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Assorted Pages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../StatusLED-BlinkCodes/">StatusLED BlinkCodes</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">AI on the Edge Device</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Getting Started &raquo;</li>
+      <li>Initial Setup</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/jomjol/AI-on-the-edge-device-docs/edit/main/docs/initial-setup.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="initial-setup">Initial Setup</h1>
+<p>After setting up the device (firmware, SD card, WLAN) the device will connect to the wifi access point and start in an initial setup configuration:</p>
+<p><img alt="" src="../img/setup_initial_welcome.png" style="width:500px" /></p>
+<p>With the buttons on the top you can navigate through 5 steps which guide you through the necessary setup:</p>
+<ol>
+<li>Create the <a href="../Reference-Image/">Reference Image</a>. It is the base for the position referencing and the identification of the digits and counters.</li>
+<li>Define two unique <a href="../Alignment/">Reference Marks</a>. They is used to align the individual camera images and identify the absolut positions.</li>
+<li>Define <a href="../ROI-Configuration/">ROIs</a> for the Digits. They will be used to digitize the digit part of your meter. If your meter has no digits, this step can be skipped.</li>
+<li>Define <a href="../ROI-Configuration/">ROIs</a> for the Analog Counters. (Only required in case your meter has analoge counters)</li></li>
+<li><a href="../Configuration/">General Settings</a>. Further configuration of your device.</li>
+</ol>
+<p>All settings can be accessed also later in the normal operation mode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Don' t forget to save each step with "Save" and do not reboot at this stage.</p>
+</div>
+<h2 id="finish-the-setup-and-change-to-the-normal-operation-mode">Finish the Setup and change to the Normal Operation mode</h2>
+<p>With the last step <code>(1)</code> you leave the <strong>Setup Mode</strong> and reboot to the <strong>Normal Operation mode</strong>.</p>
+<p><img alt="" src="../img/initial_setup_6_finish_reboot.jpg" style="width:500px" /></p>
+<h2 id="access-to-the-setup-pages-in-the-normal-operation-mode">Access to the Setup Pages in the Normal Operation mode</h2>
+<p>You always can access all the settings during the normal operation mode via the <code>Settings</code> menu:</p>
+<p><img alt="" src="../img/initial_setup_7_access_normal_mode.jpg" style="width:500px" /></p>
+<ul>
+<li><code>(1)</code> Access to the <a href="../Configuration/">General Settings</a>.</li>
+<li><code>(2)</code> Update of the <a href="../Reference-Image/">Reference Image</a>.</li>
+<li><code>(3)</code> Update of the <a href="../Alignment/">Alignment Marks</a>.</li>
+<li><code>(4)/(5)</code> Update of the <a href="../ROI-Configuration/">ROIs</a>.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Hardware-Compatibility/" class="btn btn-neutral float-right" title="Hardware Compatibility">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/jomjol/AI-on-the-edge-device-docs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../Installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Hardware-Compatibility/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
