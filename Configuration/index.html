@@ -248,6 +248,15 @@ But you might be interested in it.</p>
 <p>Neural network evaluation of analog counter. The neural network is defined by a tflite formatted file and the output is a number between 0.0 .. 9.9, representing the position of the pointer.</p>
 <h4 id="5-postprocessing">5. <code>[PostProcessing]</code></h4>
 <p>Summarized the individually converted pictures to the overall result. It also implements some error corrections and consistency checks to filter wrong reading.</p>
+<h5 id="allownegativerates"><code>AllowNegativeRates</code></h5>
+<p>The <code>AllowNegativeRates</code> property ensures that the result does not become negative in the event of incorrect readings. This can happen, for example, if the alignment of the image did not work properly. But also the neural networks sometimes flip between two states for similar images.</p>
+<p>If <code>AllowNegativeRates = true</code>, the result is discarded if it is smaller than the pre-value of the last readout and the output shows an error "Negative rate.."</p>
+<p>If the <code>ExtendedResolution</code> setting is true, there is an exception where the value does not become smaller, but no error is output. This only applies if the value +/- 0.2 of the last digit is inaccurate.</p>
+<h6 id="decimalshift"><code>DecimalShift</code></h6>
+<h6 id="analogdigitaltransitionstart"><code>AnalogDigitalTransitionStart</code></h6>
+<h6 id="maxratevalue-and-maxratetype"><code>MaxRateValue</code> and <code>MaxRateType</code></h6>
+<h6 id="extendedresolution"><code>ExtendedResolution</code></h6>
+<h6 id="ignoreleadingnan"><code>IgnoreLeadingNaN</code></h6>
 <h4 id="6-mqtt">6. <code>[MQTT]</code></h4>
 <p>Transfer of the readings to a MQTT server.</p>
 <h4 id="7-autotimer">7. <code>[AutoTimer]</code></h4>
