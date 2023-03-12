@@ -110,8 +110,14 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Troubleshooting</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../Error-Codes/">Error Codes</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">StatusLED BlinkCodes</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../WLAN-disconnect-reason/">WLAN disconnect reasons</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Error-Debugging/">Error Debugging</a>
                   </li>
@@ -146,11 +152,7 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Assorted Pages</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">StatusLED BlinkCodes</a>
-    <ul class="current">
-    </ul>
-                  </li>
+              <ul>
               </ul>
       </div>
     </div>
@@ -166,7 +168,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Assorted Pages &raquo;</li>
+          <li>Troubleshooting &raquo;</li>
       <li>StatusLED BlinkCodes</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/jomjol/AI-on-the-edge-device-docs/edit/main/docs/StatusLED-BlinkCodes.md" class="icon icon-github"> Edit on GitHub</a>
@@ -178,33 +180,27 @@
             <div class="section" itemprop="articleBody">
               
                 <p>This page lists possible blink codes of the red LED located on the ESP32-CAM board, their meaning and possible solutions.</p>
-<p>The effective error codes can be found <a href="https://github.com/jomjol/AI-on-the-edge-device/blob/rolling/code/components/jomjol_helper/statusled.h">here</a>.</p>
+<p>The error code source definition can be found <a href="https://github.com/jomjol/AI-on-the-edge-device/blob/rolling/code/components/jomjol_helper/statusled.h">here</a>.</p>
 <h1 id="general-design-approach">General design approach:</h1>
 <ul>
 <li>250ms blink code to identify source</li>
 <li>500ms defined LED off</li>
 <li>250ms blink code to identify error / status code</li>
-<li>1,5s LED off to signal repetition</li>
+<li>1,5s defined LED off to signal repetition</li>
+<li>Repetition blink code: infinite for critical errors and status indication or 2x for warning indication</li>
 <li>e.g. 3x blinks | 500ms LED off | 2x blinks --&gt; error: SD card not found</li>
 </ul>
 <table>
 <thead>
 <tr>
 <th><strong>source</strong></th>
-<th>source blink count</th>
-<th>error / status</th>
-<th>status blink count</th>
-<th>repeat infinite</th>
+<th>source <br> blink count</th>
+<th>error / warning / status</th>
+<th>status <br> blink count</th>
+<th>repeat <br> infinite</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>FLASHLIGHT</td>
-<td>N/A</td>
-<td>LED on when flashlight is on (lowest prio)</td>
-<td>solid, no blinking</td>
-<td></td>
-</tr>
 <tr>
 <td>WLAN_CONN</td>
 <td>1</td>
@@ -229,7 +225,7 @@
 <tr>
 <td>WLAN_CONN</td>
 <td>1</td>
-<td>Disconnected (Error code, misc error)</td>
+<td>Disconnected (further reasons)</td>
 <td>4</td>
 <td></td>
 </tr>
@@ -320,14 +316,14 @@
 <tr>
 <td>PSRAM_INIT</td>
 <td>6</td>
-<td>PSRAM init failed: Not found/defective</td>
+<td>RAM init failed: Not found/defective</td>
 <td>1</td>
 <td>X</td>
 </tr>
 <tr>
 <td>PSRAM_INIT</td>
 <td>6</td>
-<td>External PSRAM &lt; 4MB</td>
+<td>External SPI RAM &lt; 4MB</td>
 <td>2</td>
 <td>X</td>
 </tr>
@@ -355,34 +351,121 @@
 <tr>
 <td>OTA_OR_AP</td>
 <td>8</td>
-<td>Soft AP started</td>
+<td>Soft AP started (for remote config)</td>
 <td>2</td>
 <td>X</td>
 </tr>
+<tr>
+<td>FLASHLIGHT</td>
+<td>N/A</td>
+<td>LED on when flashlight is on</td>
+<td>solid, <br> no blink</td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<p>From here --&gt;TODO!!!</p>
-<h1 id="error">Error</h1>
-<p>Those errors make the normal operation of the device impossible.
-Most likely they are caused by a hardware issue!</p>
-<h2 id="0x00000001-psram-bad"><code>0x00000001</code> PSRAM bad</h2>
-<p>Your device most likely has no PSRAM at all or it is too small (needs to have at least 4 MBytes)!
-See <a href="../Hardware-Compatibility">Hardware Compatibility</a>.</p>
-<p>Usually the log shows something like this:</p>
-<pre><code>psram: PSRAM ID read error: 0xffffffff
-cpu_start: Failed to init external RAM!
-</code></pre>
-<h1 id="status">Status</h1>
-<p>Those Errors can be caused by an error during initialization. It is possible that the error has no impact at all or that a reboot solves it.</p>
-<h2 id="0x00000100-cam-framebuffer-bad"><code>0x00000100</code> Cam Framebuffer bad</h2>
-<p>The firmware was unable to initialize the Camera Framebuffer.
-The firmware will continue to work, but other consequential error might arise.
-A reboot of the device might help.</p>
+<h1 id="error-warning">ERROR / WARNING</h1>
+<h2 id="source-wlan_conn-wlan-disconnected">Source WLAN_CONN: WLAN disconnected</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only warning indication, blink code repetition: 2x
+--&gt; General info: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/wifi.html#wi-fi-reason-code">WLAN disconnect reason code description</a></p>
+</div>
+<h3 id="wlan-disconnected-no-access-point"><code>WLAN disconnected (No Access Point)</code></h3>
+<p>WLAN connection is interrupted due to no access point in range.</p>
+<h3 id="wlan-disconnected-authentication-failure"><code>WLAN Disconnected (Authentication failure)</code></h3>
+<p>WLAN connection is interrupted due to an authentication failure. If error repeats check WLAN config in WLAN.INI (username, password)</p>
+<h3 id="wlan-disconnected-timeout"><code>WLAN Disconnected (Timeout)</code></h3>
+<p>WLAN connection is interrupted due to an timeout because no beacon from AP is received in a timely manner. Most probably access point  is not available anymore or connection is not reliable.</p>
+<h3 id="wlan-disconnected-further-reasons"><code>WLAN Disconnected (Further reasons)</code></h3>
+<p>WLAN connection is interrupted due to further reasons. Disconnect reason is printed in warining message. Please check serial console output or logfile from sd card (using another device to retrieve logfile /sdcard/log/message/). Please refer to this page to have additional infos in terms of WLAN disconnect reasons --&gt; <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/wifi.html#wi-fi-reason-code">WLAN disconnect reason code description</a></p>
+<h2 id="source-wlan_init-wlan-initialization">Source WLAN_INIT: WLAN initialization</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All critical errors, regular boot not possible</p>
+</div>
+<h3 id="wlanini-empty-or-not-readable"><code>WLAN.ini empty or not readable</code></h3>
+<p>The WLAN.INI file is present but content is either not readable or no content present. Please check for further errors in terms of SD card readability or content of WLAN.INI which is located in /sdcard (most top folder od SD card) </p>
+<h3 id="ssid-or-password-empty"><code>SSID or password empty</code></h3>
+<p>The mandatory parameters SSID (name of WIFI network) and / or password is empty. Please configure those parameters in WLAN.INI and try again.</p>
+<h3 id="wifi-init-error-details-console"><code>WIFI init error (details console)</code></h3>
+<p>A general WIFI initialization error occured. Please check serial console output or logfile from sd card (using another device to retrieve logfile /sdcard/log/message/) </p>
+<h2 id="source-sdcard_init-sd-card-initialization">Source SDCARD_INIT: SD card initialization</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All critical errors, regular boot not possible</p>
+</div>
+<h3 id="sd-card-filesystem-mount-failed"><code>SD card filesystem mount failed</code></h3>
+<p>Failed to mount FAT filesystem on SD card. Check SD card filesystem (only FAT supported) or try another card. Possible further infos: Please check serial console output.</p>
+<h3 id="sd-card-not-found-error-code-0x107"><code>SD card not found (Error code 0x107)</code></h3>
+<p>SD card init failed. Check if SD card is properly inserted into SD card slot or try another card. Possible further infos: Please check serial console output.</p>
+<h3 id="sd-card-init-failed-details-console"><code>SD card init failed (details console)</code></h3>
+<p>A general SD card initialization error occured. Please check serial console output.</p>
+<h2 id="source-sdcard_check-sd-card-basic-check">Source SDCARD_CHECK: SD card basic check</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>All critical errors, normal boot not possible. Reduced WebUI is going to be loaded for further diagnostic possibilities or redo firmware update.</p>
+<h3 id="file-creation-write-error"><code>File creation / write error</code></h3>
+<p>A basic check of SD card is performed at boot. Failed to create the test file or writing content to the file failed. Most likely SD card is defective or not supported. Please check logs with log viewer in reduced web interface, serial console output or try another card.</p>
+<p>Recommendation: Format or try another card</p>
+<h3 id="file-read-crc-verfication-error"><code>File read / CRC verfication error</code></h3>
+<p>A basic check of SD card is performed at boot. Failed to read the test file or CRC of read back content failed. Most likely SD card is defective. Please check logs with log viewer in reduced web interface or serial console output for further error indication or try another card.</p>
+<p>Recommendation: Format or try another card</p>
+<h3 id="file-delete-error"><code>File delete error</code></h3>
+<p>A basic check of SD card is performed at boot. Failed to delelte the test file. Most likely SD card is defective. Please check logs with log viewer in reduced web interface or serial console output for further error indication or try another card.</p>
+<p>Recommendation: Format or try another card</p>
+<h3 id="folder-file-presence-failed"><code>Folder / File presence failed</code></h3>
+<p>A basic check of SD card is performed at boot. One or more menadatory folder / file are not found on SD card. Please check logs with log viewer in reduced web interface or serial console output for further error indication.</p>
+<p>Recommendation: Repeat installation using AI-on-the-edge-device__update__*.zip</p>
+<h2 id="source-cam_init-camera-initialization">Source CAM_INIT: Camera initialization</h2>
+<h3 id="camera-init-failed-details-console"><code>Camera init failed (details console)</code></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Critical error, normal boot not possible. Reduced WebUI is going to be loaded for further diagnostic possibilities or redo firmware update.</p>
+</div>
+<p>A general camera initialization error occured. Please check logs with log viewer in reduced web interface or serial console output for further error indication.</p>
+<p>Recommendation: Check for proper electrical commenection, wether camera model is supported and wether power supply is suffcient.</p>
+<h3 id="camera-framebuffer-check-failed"><code>Camera framebuffer check failed</code></h3>
+<p>The framebuffer of the camera was not readable. The firmware will trying to continue regular boot, but further errors can occur which block regular processing. Please check logs with logfile viewer if processing is behaving irregular.</p>
+<p>Recommendation: Check for proper electrical commenection, wether camera model is supported and wether power supply is suffcient.</p>
+<h2 id="source-psram_init-external-ram-spi-ram-initialization">Source PSRAM_INIT: External RAM (SPI RAM) initialization</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A critical errors, normal boot not possible. Reduced WebUI is going to be loaded for further diagnostic possibilities or redo firmware update.</p>
+</div>
+<h3 id="spi-ram-init-failed-not-founddefective"><code>SPI RAM init failed: Not found/defective</code></h3>
+<p>External RAM (SPI RAM) initialization failed. Most likely external RAM not accessable or defective. Normal operation is not possible without having external RAM.</p>
+<h3 id="external-spi-ram-4mb"><code>External SPI RAM &lt; 4MB</code></h3>
+<p>External RAM (SPI RAM) initialization successful, but external RAM size is too small. A size of &gt;= 4MB is necessary to run this firmware. </p>
+<h3 id="total-heap-4mb"><code>Total heap &lt; 4MB</code></h3>
+<p>Total available system memory (heap) is too small. A size of &gt;= 4MB is necessary to run this firmware. </p>
+<h2 id="source-time_check-external-ram-spi-ram-initialization">Source TIME_CHECK: External RAM (SPI RAM) initialization</h2>
+<h3 id="missing-time-sync-check-every-round"><code>Missing time sync (check every round)</code></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only warning indication, blink code repetition: 2x</p>
+</div>
+<p>If system is configured to be synced with a NTP server the sync status is checked after every round (in state: "Flow finished". An warming message is also printed to log). If the time is not synced after serveral rounds, please check for proper configuration.</p>
+<h1 id="status">STATUS</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All only status indication</p>
+</div>
+<h2 id="source-ota_or_ap-ota-update-access-point-mode">Source OTA_OR_AP: OTA Update / Access point mode</h2>
+<h3 id="ota-process-ongoing"><code>OTA process ongoing</code></h3>
+<p>An OTA is performed right now. Please wait until OTA is completed. System is rebooting automatically. If system is not coming up, please check serial console output.</p>
+<h3 id="soft-ap-started-for-remote-config"><code>Soft AP started (for remote config)</code></h3>
+<p>The built-in access point functionality is started to perform initial remote remote setup. Further description: <a href="https://jomjol.github.io/AI-on-the-edge-device-docs/Installation/">Installtion --&gt; <code>Section Remote Setup using the built-in Access Point</code></a></p>
+<h2 id="source-flashlight-flashlight">Source FLASHLIGHT: Flashlight</h2>
+<h3 id="led-on-when-flashlight-is-on"><code>LED on when flashlight is on</code></h3>
+<p>The LED is solid on as long the flashlight is on. This feature has lower priority than the other LED codes. Whenever another code occurs this feature will be overrided.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../outdated--Integrated-Functions/" class="btn btn-neutral float-left" title="Integrated Functions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Error-Codes/" class="btn btn-neutral float-left" title="Error Codes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../WLAN-disconnect-reason/" class="btn btn-neutral float-right" title="WLAN disconnect reasons">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -409,8 +492,10 @@ A reboot of the device might help.</p>
         </span>
     
     
-      <span><a href="../outdated--Integrated-Functions/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Error-Codes/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../WLAN-disconnect-reason/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
