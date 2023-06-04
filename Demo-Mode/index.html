@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://jomjol.github.io/AI-on-the-edge-device-docs/Demo-Mode/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Demo Mode - AI on the Edge Device</title>
+    <title>Demo mode - AI on the Edge Device</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Demo Mode";
+        var mkdocs_page_name = "Demo mode";
         var mkdocs_page_input_path = "Demo-Mode.md";
         var mkdocs_page_url = "/AI-on-the-edge-device-docs/Demo-Mode/";
       </script>
@@ -35,7 +35,7 @@
     <a href=".." class="icon icon-home"> AI on the Edge Device
 </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -111,17 +111,17 @@
               </ul>
               <p class="caption"><span class="caption-text">Troubleshooting</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../Error-Codes/">Error Codes</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Error-Codes/">Reduced webinterface (error codes)</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../StatusLED-BlinkCodes/">StatusLED BlinkCodes</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../StatusLED-BlinkCodes/">Board status LED (blink codes)</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../WLAN-disconnect-reason/">WLAN disconnect reasons</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Error-Debugging/">Error Debugging</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Error-Debugging/">Often observed issues</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Frequent-Reboots/">Frequent Reboots</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Frequent-Reboots/">Basic hardware/config issues</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Demo Mode</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Demo mode</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#sd-card-structure">SD Card Structure</a>
     </li>
@@ -135,11 +135,11 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#animation">Animation</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#all-images-843-images">All images (843 images)</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#selection-of-84-images">Selection of 84 images</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#selection-of-42-images">Selection of 42 images</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#all-images-843-images">All images (843 images)</a>
     </li>
         </ul>
     </li>
@@ -187,9 +187,9 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
           <li>Troubleshooting &raquo;</li>
-      <li>Demo Mode</li>
+      <li>Demo mode</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/jomjol/AI-on-the-edge-device-docs/edit/main/docs/Demo-Mode.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -259,25 +259,24 @@ done
 <p>The Demo Mode tries to interfere as less as possible with the normal behavior. Whenever a Cam framebuffer gets taken (<code>esp_camera_fb_get()</code>), it replaces the framebuffer with the image from the SD card.</p>
 <h2 id="example-data-of-a-water-meter">Example Data of a Water Meter</h2>
 <p>You can use the following demo images if you want:</p>
-<p><img alt="530 00688" src="https://user-images.githubusercontent.com/1783586/211902363-1b8e4115-5f08-4e25-ace6-bb52e43b3741.jpg" style="width:200px" /></p>
+<p><img alt="530 00688" src="https://user-images.githubusercontent.com/1783586/211902363-1b8e4115-5f08-4e25-ace6-bb52e43b3741.jpg" style="width:400px" /></p>
 <p>It covers a meter range from <code>530.00688</code> to <code>531.85882</code>.</p>
 <h3 id="animation">Animation</h3>
 <p><a href="../img/demo-watermeter-animated.png">Animation of the watermeter (77 MB!)</a></p>
-<h3 id="all-images-843-images">All images (843 images)</h3>
-<p><a href="https://user-images.githubusercontent.com/1783586/211915731-9a2a3cd3-390b-4b1f-a064-5e7e443ab113.png"><img alt="grafik" src="https://user-images.githubusercontent.com/1783586/211915731-9a2a3cd3-390b-4b1f-a064-5e7e443ab113.png" style="width:400px" /></a></p>
-<p><a href="https://github.com/jomjol/AI-on-the-edge-device-docs/files/10395941/Demo_Images_Watermeter_530.00688-532.08243_843_images.zip">Demo_Images_Watermeter_530.00688-532.08243_843_images.zip</a></p>
-<p>Animation of it (186 MB!)</p>
 <h3 id="selection-of-84-images">Selection of 84 images</h3>
 <p><a href="https://user-images.githubusercontent.com/1783586/211915870-aa5c1342-c61c-4e1f-afe0-10e222f1499d.png"><img alt="grafik" src="https://user-images.githubusercontent.com/1783586/211915870-aa5c1342-c61c-4e1f-afe0-10e222f1499d.png" style="width:400px" /></a></p>
 <p><a href="https://github.com/jomjol/AI-on-the-edge-device-docs/files/10395892/Demo_Images_Watermeter_530.00688-532.08243_84_images.zip">Demo_Images_Watermeter_530.00688-532.08243_84_images.zip</a></p>
 <h3 id="selection-of-42-images">Selection of 42 images</h3>
 <p><a href="https://user-images.githubusercontent.com/1783586/211915898-b499e109-7b63-4e21-ba5b-c0a370022f7a.png"><img alt="grafik" src="https://user-images.githubusercontent.com/1783586/211915898-b499e109-7b63-4e21-ba5b-c0a370022f7a.png" style="width:400px" /></a></p>
 <p><a href="https://github.com/jomjol/AI-on-the-edge-device-docs/files/10395893/Demo_Images_Watermeter_530.00688-532.08243_42_images.zip">Demo_Images_Watermeter_530.00688-532.08243_42_images.zip</a></p>
+<h3 id="all-images-843-images">All images (843 images)</h3>
+<p><a href="https://user-images.githubusercontent.com/1783586/211915731-9a2a3cd3-390b-4b1f-a064-5e7e443ab113.png"><img alt="grafik" src="https://user-images.githubusercontent.com/1783586/211915731-9a2a3cd3-390b-4b1f-a064-5e7e443ab113.png" style="width:400px" /></a></p>
+<p><a href="https://github.com/jomjol/AI-on-the-edge-device-docs/files/10395941/Demo_Images_Watermeter_530.00688-532.08243_843_images.zip">Demo_Images_Watermeter_530.00688-532.08243_843_images.zip</a></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Frequent-Reboots/" class="btn btn-neutral float-left" title="Frequent Reboots"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Frequent-Reboots/" class="btn btn-neutral float-left" title="Basic hardware/config issues"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../REST-API/" class="btn btn-neutral float-right" title="REST API">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 

@@ -35,7 +35,7 @@
     <a href=".." class="icon icon-home"> AI on the Edge Device
 </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -208,6 +208,10 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#parameter-measurement">Parameter Measurement</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameter-numberfield">Parameter &lt;NUMBER&gt;.Field</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameter-measurement_1">Parameter Measurement</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#parameter-uri_1">Parameter Uri</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#parameter-password_1">Parameter password</a>
@@ -220,9 +224,13 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#parameter-database_1">Parameter Database</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#parameter-measurement_1">Parameter Measurement</a>
+    <li class="toctree-l3"><a class="reference internal" href="#parameter-measurement_2">Parameter Measurement</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#parameter-numberfieldname">Parameter &lt;NUMBER&gt;.fieldname</a>
+    <li class="toctree-l3"><a class="reference internal" href="#parameter-numberfield_1">Parameter &lt;NUMBER&gt;.Field</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameter-numberfieldname">Parameter NUMBER.Fieldname</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameter-measurement_3">Parameter Measurement</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#parameter-org">Parameter Org</a>
     </li>
@@ -323,17 +331,17 @@
               </ul>
               <p class="caption"><span class="caption-text">Troubleshooting</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../Error-Codes/">Error Codes</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Error-Codes/">Reduced webinterface (error codes)</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../StatusLED-BlinkCodes/">StatusLED BlinkCodes</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../StatusLED-BlinkCodes/">Board status LED (blink codes)</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../WLAN-disconnect-reason/">WLAN disconnect reasons</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Error-Debugging/">Error Debugging</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Error-Debugging/">Often observed issues</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Frequent-Reboots/">Frequent Reboots</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Frequent-Reboots/">Basic hardware/config issues</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Demo-Mode/">Demo Mode</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Demo-Mode/">Demo mode</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">API's</span></p>
@@ -377,7 +385,7 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
           <li>Advanced &raquo;</li>
       <li>Parameters</li>
     <li class="wy-breadcrumbs-aside">
@@ -524,7 +532,7 @@ This parameter can also be set on the Reference Image configuration.</p>
 <p class="admonition-title">Warning</p>
 <p>This is an <strong>Expert Parameter</strong>! Only change it if you understand what it does!</p>
 </div>
-<p>Waiting time between switching illumination on and taking the picture.</p>
+<p>Waiting time between switching the flash light (onboard LED) on and taking the picture.</p>
 <hr style="border:2px solid">
 
 <h2 id="section-alignment">Section <code>Alignment</code></h2>
@@ -753,6 +761,7 @@ In an error case, the last valid number will be used for the various transmissio
 Look for the start of changing of the first digit and note the analog pointer value behind.
 Set it here. Only used on combination of digits and analog pointers.
 See <a href="../Watermeter-specific-analog---digital-transition">here</a> for details.</p>
+<p>Range: <code>6.0</code> .. <code>9.9</code>.</p>
 <hr style="border:2px solid">
 
 <p><a id=PostProcessing-NUMBER.DecimalShift></a></p>
@@ -783,15 +792,15 @@ See <a href="../Choosing-the-Model">here</a> for details.</p>
 <p><a id=PostProcessing-NUMBER.MaxRateType></a></p>
 <h3 id="parameter-numbermaxratetype">Parameter <code>&lt;NUMBER&gt;.MaxRateType</code></h3>
 <p>Default Value: <code>AbsoluteChange</code></p>
-<p>Defines if the <strong>Change Rate</strong> compared to the previous value is calculated as absolute change (<code>AbsoluteChange</code>) or
-as rate normalized to the interval (<code>RateChange</code> = change/minute).</p>
+<p>Defines if the <strong>Change Rate</strong> is calculated as the difference between the last two readings (<code>AbsoluteChange</code> = difference) or
+as the difference normalized to the interval (<code>RateChange</code> = difference per minute).</p>
 <hr style="border:2px solid">
 
 <p><a id=PostProcessing-NUMBER.MaxRateValue></a></p>
 <h3 id="parameter-numbermaxratevalue">Parameter <code>&lt;NUMBER&gt;.MaxRateValue</code></h3>
-<p>Default Value: <code>0.05</code></p>
-<p>Maximum change of a reading.
-Depending on the settings of <code>&lt;NUMBER&gt;.MaxRateType</code> it is either treated  as <code>absolute</code> or <code>relative</code>!</p>
+<p>Default Value: <code>0,05</code></p>
+<p>Maximum allowed change between two readings, if exceeded the last reading will be rejected. Depending on the settings of <code>&lt;NUMBER&gt;.MaxRateType</code> the <code>MaxRateValue</code> is either treated as the difference between the two measurements (<code>AbsoluteChange</code> = difference) not taking the set time interval into account or as the difference normalized to the interval (<code>RateChange</code> = difference per minute).</p>
+<p>If negative rate is disallowed and no maximum rate value is set, one false high reading will lead to a period of missing measurements until the measurement reaches the previous false high reading. E.g. if the counter is at <code>600,00</code> and it's read incorrectly as<code>610,00</code>, all measurements will be skipped until the counter reaches <code>610,00</code>. Setting the MaxRateValue to <code>0,05</code> leads to a rejection of all readings with a difference <code>&gt; 0,05</code>, in this case <code>610,00</code>. The rejection also applies to correct readings with a difference <code>&gt; 0,05</code>!</p>
 <hr style="border:2px solid">
 
 <p><a id=PostProcessing-PreValueAgeStartup></a></p>
@@ -892,6 +901,18 @@ Alternatively you can set the parameter <code>DecimalShift</code> to <code>3</co
 <p><a id=InfluxDB-Measurement></a></p>
 <h3 id="parameter-measurement">Parameter <code>Measurement</code></h3>
 <p>Default Value: <code>undefined</code></p>
+<p>Please fill me with an explanation and useful links.</p>
+<hr style="border:2px solid">
+
+<p><a id=InfluxDB-NUMBER.Field></a></p>
+<h3 id="parameter-numberfield">Parameter <code>&lt;NUMBER&gt;.Field</code></h3>
+<p>Default Value: <code>undefined</code></p>
+<p>Dedicated definition of the field for InfluxDB use for saving in the Influx database (e.g.: "watermeter/value").</p>
+<hr style="border:2px solid">
+
+<p><a id=InfluxDB-NUMBER.Measurement></a></p>
+<h3 id="parameter-measurement_1">Parameter <code>Measurement</code></h3>
+<p>Default Value: <code>undefined</code></p>
 <p>Name of the InfluxDB v1 Measurement to use to publish the value.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -937,15 +958,27 @@ Alternatively you can set the parameter <code>DecimalShift</code> to <code>3</co
 <hr style="border:2px solid">
 
 <p><a id=InfluxDBv2-Measurement></a></p>
-<h3 id="parameter-measurement_1">Parameter <code>Measurement</code></h3>
+<h3 id="parameter-measurement_2">Parameter <code>Measurement</code></h3>
 <p>Default Value: <code>undefined</code></p>
-<p>Name of the InfluxDB v2 Measurement to use to publish the value.</p>
+<p>Please fill me with an explanation and useful links.</p>
+<hr style="border:2px solid">
+
+<p><a id=InfluxDBv2-NUMBER.Field></a></p>
+<h3 id="parameter-numberfield_1">Parameter <code>&lt;NUMBER&gt;.Field</code></h3>
+<p>Default Value: <code>undefined</code></p>
+<p>Field for InfluxDB v2 to use for saving.</p>
 <hr style="border:2px solid">
 
 <p><a id=InfluxDBv2-NUMBER.Fieldname></a></p>
-<h3 id="parameter-numberfieldname">Parameter <code>&lt;NUMBER&gt;.fieldname</code></h3>
+<h3 id="parameter-numberfieldname">Parameter <code>NUMBER.Fieldname</code></h3>
 <p>Default Value: <code>undefined</code></p>
-<p>Fieldname for InfluxDB v2 to use for saving.</p>
+<p>Please fill me with an explanation and useful links.</p>
+<hr style="border:2px solid">
+
+<p><a id=InfluxDBv2-NUMBER.Measurement></a></p>
+<h3 id="parameter-measurement_3">Parameter <code>Measurement</code></h3>
+<p>Default Value: <code>undefined</code></p>
+<p>Name of the InfluxDB v2 Measurement to use to publish the value.</p>
 <hr style="border:2px solid">
 
 <p><a id=InfluxDBv2-Org></a></p>
